@@ -20,6 +20,19 @@
     <include refid="Base_Column_List" />
     from sys_goods
     where id = #{id,jdbcType=INTEGER}
+
+
+  </select>
+
+
+  <!--模糊查询-->
+  <select id="selectByLike" resultMap="BaseResultMap">
+   select g.* from sys_type t
+    inner join sys_goods g
+    on t.id=g.tid
+    inner join sys_company c
+    on c.id=g.cid
+    where g.name like #{msg} or t.type like #{msg} or g.introduce like #{msg}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from sys_goods

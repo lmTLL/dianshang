@@ -48,10 +48,11 @@ public class GoodsServiceImpl implements GoodsService {
             return ResultUtil.exec(false,e.getMessage(),null);
         }
     }
-//模糊查询
+    //模糊查询
     @Override
     public ResultVo queryGoodsByLike(String msg) {
         msg = "%" + msg + "%";
+        System.out.println(msg);
         try {
             List<GoodsVo> list = goodsMapper.selectByLike(msg);
             return ResultUtil.exec(true,null,list);

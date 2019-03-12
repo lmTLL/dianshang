@@ -31,6 +31,8 @@ public class GoodsContorller {
     }
 
     /**
+     *
+     *
      * 首页根据展示商品id来查询商品详情
      * @param id
      * @return
@@ -38,6 +40,16 @@ public class GoodsContorller {
     @GetMapping("/findGoodsById.do")
     public ResultVo selectGoodsById(Integer id){
         return goodsService.queryGoodsById(id);
+    }
+
+    /**
+     *模糊查询  根据商品的名字，类型和详情模糊展示
+     * @param msg
+     * @return
+     */
+    @GetMapping("/findByLike.do")
+    public ResultVo selectGoodsByLike(String msg){
+        return goodsService.queryGoodsByLike(msg);
     }
 
 
