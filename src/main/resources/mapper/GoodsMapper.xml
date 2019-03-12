@@ -15,7 +15,7 @@
   <sql id="Base_Column_List">
     id, name, introduce, picture, oldprice, nowprice, cid, tid, flag
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_goods
@@ -136,4 +136,12 @@
       flag = #{flag,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+<!--查询出所有的商品，在首页进行展示-->
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from sys_goods
+  </select>
+
 </mapper>
